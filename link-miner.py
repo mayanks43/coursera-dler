@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os, cookielib, urllib2
 from HTMLParser import HTMLParser
 course = "compilers"

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from subprocess import call
 import os
 def ensure_dir(f):
