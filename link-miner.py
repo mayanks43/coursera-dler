@@ -1,7 +1,20 @@
 #!/usr/bin/python
 import os, cookielib, urllib2
 from HTMLParser import HTMLParser
-course = "compilers"
+import argparse
+import sys
+
+parser = argparse.ArgumentParser(description='script to mine links from a coursera page')
+parser.add_argument('course', type=str, help='course name')
+
+args = parser.parse_args()
+if args.course != "":
+    course = args.course
+else:
+    print "Enter course name"
+    sys.exit(1)
+
+
 #TODO: add ability to specify cookies file and create course folder on demand
 
 class MyHTMLParser(HTMLParser):

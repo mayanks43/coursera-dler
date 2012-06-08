@@ -19,7 +19,9 @@ A Script to download all videos from a coursera course at one go.
 
     $ chmod +x link-miner.py 
 4. Then run the scripts:
-    $ ./link-miner.py | ./coursera-dler.py
+    $ ./link-miner.py coursename | ./coursera-dler.py
+    
+    Specify coursename such as compilers, ml, pgm, etc. without quotes.
     
 TODO: Add ability to save state
 TODO: Add ability to save in folders
