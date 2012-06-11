@@ -8,16 +8,19 @@ def ensure_dir(f):
 course = raw_input()
 ensure_dir(course)
 current_folder = "default"
+f = None
 while True:
     try:
         x = raw_input()
         if(len(x.split('#')) < 3):
             current_folder = x.strip()
             #print current_folder
-            ensure_dir(course+'/'+current_folder)            
+            ensure_dir(course+'/'+current_folder)
+            f = open(course+'/'+current_folder+'/playlist.m3u','w')
         else:
             stuff = x.split('#')
             video_id, video_name, link = stuff
+            f.write(video_name.strip()+".mp4\n")
             #print video_id, video_name, link
             pathto = course+"/"+current_folder+"/"+video_name.strip()+".mp4"
             if not os.path.exists(pathto):            

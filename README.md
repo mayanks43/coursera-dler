@@ -24,4 +24,4 @@ A Script to download all videos from a coursera course at one go.
 5. To stop download just press Ctrl+Z.
 6. To continue download, delete the file that was incompletely downloaded last time and use the same command again.
 7. Similarly, When new videos are up just run the same command again.
-
+8. Automatically creates playlist of all videos in the order they should be seen.
