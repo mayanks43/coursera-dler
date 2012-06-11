@@ -14,9 +14,7 @@ else:
     print "Enter course name"
     sys.exit(1)
 
-
-#TODO: add ability to specify cookies file and create course folder on demand
-
+# create a subclass and override the handler methods
 class MyHTMLParser(HTMLParser):
     def __init__(self, *args, **kwargs):
         HTMLParser.__init__(self, *args, **kwargs)
@@ -49,11 +47,12 @@ class MyHTMLParser(HTMLParser):
         if self.lecture:
             print data.replace('/','\\').strip()+'#',
             self.lecture = False
-            
+print course        
 cj = cookielib.MozillaCookieJar()
 cj.load(os.path.join("cookies.txt"))
 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 r = opener.open("https://class.coursera.org/"+course+"/lecture/index")
-print course
+
 parser = MyHTMLParser()
+
 parser.feed(r.read())

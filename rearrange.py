@@ -4,8 +4,8 @@ import os
 def ensure_dir(f):
     if not os.path.exists(f):
         os.makedirs(f)
-
 course = raw_input()
+#print course
 ensure_dir(course)
 current_folder = "default"
 while True:
@@ -14,21 +14,13 @@ while True:
         if(len(x.split('#')) < 3):
             current_folder = x.strip()
             #print current_folder
-            ensure_dir(course+'/'+current_folder)            
+            ensure_dir(course+'/'+current_folder)
+            
         else:
             stuff = x.split('#')
             video_id, video_name, link = stuff
             #print video_id, video_name, link
-            pathto = course+"/"+current_folder+"/"+video_name.strip()+".mp4"
-            if not os.path.exists(pathto):            
-                call(["wget", "-O", pathto,"--load-cookies=cookies.txt", link.strip()])
-            else:
-                statinfo = os.stat(pathto)
-                if statinfo.st_size == 0:
-                    call(["wget", "-O", pathto,"--load-cookies=cookies.txt", link.strip()])
+            call(["mv", course+"/"+video_id.strip()+".mp4", course+"/"+video_name.strip()+".mp4"])
+            call(["mv", course+"/"+video_name.strip()+".mp4", course+"/"+current_folder+"/"])
     except EOFError:
         break
-
-
-
-
